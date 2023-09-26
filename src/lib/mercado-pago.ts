@@ -1,21 +1,23 @@
 import { Either, MercadoPagoError, failure, success } from "@/logic";
 import { InvalidCredentialsError } from "./_errors";
-import { PaymentResource } from "./resources";
+import { PaymentResource, RefundResource } from "./resources";
 
 export class MercadoPago {
     
     host: string = "https://api.mercadopago.com";
 
     payment: PaymentResource
+    refundResource: RefundResource
 
     private constructor(
         private readonly props: MercadoPago.Props
     ){
         this.payment = new PaymentResource(this)
+        this.refundResource = new RefundResource(this)
     }
 
     static createInstance(input: MercadoPago.Props): Either<MercadoPagoError, Omit<MercadoPago, 
-    "accessToken" | "clientId"| "clientSecret" | "isSandbox" | "getBaseUrl" | "host">> {
+    "accessToken" | "clientId"| "clientSecret" | "isSandbox" | "getBaseUrl" | "host" | "refundResource">> {
 
         if ((input.clientId !== undefined && input.clientSecret === undefined)
         || (input.clientId === undefined && input.clientSecret !== undefined)) {
