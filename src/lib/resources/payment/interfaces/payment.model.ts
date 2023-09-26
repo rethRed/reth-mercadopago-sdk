@@ -18,19 +18,14 @@ export type PaymentModel = {
             type: "CPF" | "CNPJ" | "CUIT" | "CUIL" | "DNI" | "CURP" | "RFC" | "CC" | "RUT" | "CI",
             number: number
         },
-        type?: "customer"
+        type?: 'customer' | 'registered' | 'guest'
     },
     metadata?: any,
     additional_info?: any,
     transaction_amount: number,
     transaction_amount_refunded: number,
     coupon_amount: number,
-    transaction_details: {
-        net_received_amount: number,
-        total_paid_amount: number,
-        overpaid_amount: number,
-        installment_amount: number
-    },
+    transaction_details: any,
     installments: number,
     card: {}
 }
