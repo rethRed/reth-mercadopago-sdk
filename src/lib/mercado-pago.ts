@@ -31,8 +31,7 @@ export class MercadoPago {
         this.merchantOrder = new MerchantOrderResource(this)
     }
 
-    static createInstance(input: MercadoPago.Props): Either<MercadoPagoError, Omit<MercadoPago, 
-    "accessToken" | "clientId"| "clientSecret" | "isSandbox" | "getBaseUrl" | "host" | "refundResource">> {
+    static createInstance(input: MercadoPago.Props): Either<MercadoPagoError, MercadoPago.MercadoPagoInterface> {
 
         if ((input.clientId !== undefined && input.clientSecret === undefined)
         || (input.clientId === undefined && input.clientSecret !== undefined)) {
@@ -69,6 +68,9 @@ export class MercadoPago {
 
 export namespace MercadoPago {
     
+    export type MercadoPagoInterface = Omit<MercadoPago, 
+    "accessToken" | "clientId"| "clientSecret" | "isSandbox" | "getBaseUrl" | "host" | "refundResource">
+
     export type Props = {
         accessToken: string;
         clientId?: string
