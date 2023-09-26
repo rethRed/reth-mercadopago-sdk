@@ -49,6 +49,7 @@ class MercadoPagoError {
   status: number;
   code: number | string
 }
+```
 
 ```javascript
 const result =  {
