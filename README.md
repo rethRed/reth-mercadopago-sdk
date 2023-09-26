@@ -35,8 +35,7 @@ return payment.value
 
 ## ✨ Logic
 
-  Each operation will yield one of two outcomes: a MercadoPagoError in the event of an error, or the desired value in case of a   
-  successful operation.
+  Each operation will yield one of two outcomes: a MercadoPagoError in the event of an error, or the desired value in case of a successful operation.
 
   You can check if the operation was successfull or not by calling the methods:
 ```javascript
