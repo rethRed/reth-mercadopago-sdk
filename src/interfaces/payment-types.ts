@@ -1,0 +1,1 @@
+export type PaymentTypes = "account_money" | "ticket" | "bank_transfer" | "atm" | "credit_card" | "debit_card" | "prepaid_card" | "digital_currency" | "digital_wallet" | "voucher_card" | "crypto_transfer"

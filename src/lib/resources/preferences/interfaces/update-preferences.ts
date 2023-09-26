@@ -1,3 +1,5 @@
+import { Currency } from "@/interfaces"
+
 export type UpdatePreference = {
     items?: {
         id?: string
@@ -7,7 +9,7 @@ export type UpdatePreference = {
         description?: string
         picture_url?: string
         category_id?: string
-        currency_id?:  "ARS" | "BRL" | "CLP" | "COP" | "PEN" | "UYU" | "MXN"
+        currency_id?:  keyof Pick<Currency, "ARS" | "BRL" | "CLP" | "COP" | "PEN" | "UYU" | "MXN">
     }[]
     shipments?: {
         mode?: 'custom' | 'me2' | 'not_specified' 

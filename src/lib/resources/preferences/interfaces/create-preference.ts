@@ -1,3 +1,5 @@
+import { Currency } from "@/interfaces"
+
 export type CreatePreference = {
 
     items: {
@@ -8,7 +10,7 @@ export type CreatePreference = {
         description?: string
         picture_url?: string
         category_id?: string
-        currency_id?: "ARS" | "BRL" | "CLP" | "COP" | "PEN" | "UYU" | "MXN"
+        currency_id?: keyof Pick<Currency, "ARS" | "BRL" | "CLP" | "COP" | "PEN" | "UYU" | "MXN">
     }[]
     tracks?: {
         type: "google_ad" | "facebook_ad"

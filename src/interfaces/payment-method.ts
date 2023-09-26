@@ -1,0 +1,1 @@
+export type PaymentMethods = "pix" | "account_money" | "debin_transfer" | "cvu" | "pse" 
