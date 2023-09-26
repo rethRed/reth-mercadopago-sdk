@@ -1,6 +1,6 @@
 import { Either, MercadoPagoError, failure, success } from "@/logic";
 import { getAxiosInstance } from "./axios";
-import { BaseMercadoPagoResource } from "@/lib/resources/_base-mercado-pago-resouce";
+import { BaseMercadoPagoResource } from "@/logic/_base-mercado-pago-resouce";
 
 
 export class RequestManager {

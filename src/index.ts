@@ -5,32 +5,24 @@ const mercadoPago = MercadoPago.createInstance({
     accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN!
 })
 
-
 if(mercadoPago.isSuccess()){
 
     const exec = async () => {
-        const response = await mercadoPago.value.payment.create({
-            transaction_amount: 1,
-            installments: 1,
-            payment_method_id: "pix",
-            payer: {
-                email: "any_mail@gmail.com",
-            },
-            additional_info: {
-                payer: {
-                    authentication_type: "Gmail"
-                }
-            }
-        }, { idempotency: "12243" })
+        const response = await mercadoPago.value.preferences.create({
+            items: [{
+                id: "1",
+                unit_price: 1,
+                quantity: 1,
+                title: `Assinatura `,
+                currency_id: "BRL"
+            }],
+            external_reference: "paymentRefernece.value"
+        }, { idempotency: "12243243" })
         if(response.isFailure()) return console.log(response.value)        
-        //onsole.log("🚀 ~ file: index.ts:26 ~ exec ~ response:", response.value.point_of_interaction)
-        mercadoPago.value.payment.
-        const res = await mercadoPago.value.payment.refundPartial({
-            id: response.value.id,
-            amount: 0.50
-        })
-        console.log("🚀 ~ file: index.ts:27 ~ exec ~ res:", res)
+
+        const preference = await mercadoPago.value.preferences.findById(response.value.id)
+        console.log("🚀 ~ file: index.ts:24 ~ exec ~ preference:", preference.value)
     }
     exec()
 
-}//dfd
+}//dfdsdfsd

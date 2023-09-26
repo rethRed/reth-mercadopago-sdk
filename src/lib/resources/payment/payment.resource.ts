@@ -1,6 +1,6 @@
 import { MercadoPago } from "@/lib/mercado-pago";
 import { CreatePayment } from "./interfaces"
-import { BaseMercadoPagoResource } from "../_base-mercado-pago-resouce";
+import { BaseMercadoPagoResource } from "../../../logic/_base-mercado-pago-resouce";
 
 export class PaymentResource extends BaseMercadoPagoResource {
 
@@ -13,7 +13,7 @@ export class PaymentResource extends BaseMercadoPagoResource {
     async create(data: CreatePayment, headers?: BaseMercadoPagoResource.Headers)  {
         return await this.requestRoute({
             method: "POST",
-            path: "/payments",
+            path: "/v1/payments",
             headers,
             data
         })
@@ -23,7 +23,7 @@ export class PaymentResource extends BaseMercadoPagoResource {
         return await this.requestRoute({
             headers,
             method: "PUT",
-            path: `/payments/:id`,
+            path: `/v1/payments/:id`,
             params: {
                 id
             },
@@ -37,7 +37,7 @@ export class PaymentResource extends BaseMercadoPagoResource {
         return await this.requestRoute({
             headers,
             method: "PUT",
-            path: `/payments/:id`,
+            path: `/v1/payments/:id`,
             params: {
                 id,
             },
@@ -51,7 +51,7 @@ export class PaymentResource extends BaseMercadoPagoResource {
         return await this.requestRoute({
             headers,
             method: "PUT",
-            path: `/payments/:id`,
+            path: `/v1/payments/:id`,
             params: {
                 id: props.id,
             },
@@ -66,7 +66,7 @@ export class PaymentResource extends BaseMercadoPagoResource {
         return await this.requestRoute({
             headers,
             method: "GET",
-            path: `/payments/:id`,
+            path: `/v1/payments/:id`,
             params: {
                 id
             }

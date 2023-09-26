@@ -1,6 +1,5 @@
 
 export type CreatePayment = {
-    additionalProperties?: boolean, // Fails if an extra param is added to the model
     payer: {
           entity_type?: 'individual' | 'association'
           type?: 'customer' | 'registered' | 'guest'

@@ -1,6 +1,10 @@
 import { Either, MercadoPagoError, failure, success } from "@/logic";
 import { InvalidCredentialsError } from "./_errors";
-import { PaymentResource, RefundResource } from "./resources";
+import { 
+    PaymentResource, 
+    PreferencesResource, 
+    RefundResource 
+} from "./resources";
 
 export class MercadoPago {
     
@@ -8,12 +12,14 @@ export class MercadoPago {
 
     payment: PaymentResource
     refundResource: RefundResource
+    preferences: PreferencesResource
 
     private constructor(
         private readonly props: MercadoPago.Props
     ){
         this.payment = new PaymentResource(this)
         this.refundResource = new RefundResource(this)
+        this.preferences = new PreferencesResource(this)
     }
 
     static createInstance(input: MercadoPago.Props): Either<MercadoPagoError, Omit<MercadoPago, 
@@ -45,7 +51,7 @@ export class MercadoPago {
     }
 
     getBaseUrl() {
-        return `${this.host}/v1`;
+        return `${this.host}`;
     }
 
 

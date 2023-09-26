@@ -1,5 +1,5 @@
 import { MercadoPago } from "@/lib/mercado-pago";
-import { BaseMercadoPagoResource } from "../_base-mercado-pago-resouce";
+import { BaseMercadoPagoResource } from "../../../logic/_base-mercado-pago-resouce";
 
 export class RefundResource extends BaseMercadoPagoResource {
 
@@ -13,7 +13,7 @@ export class RefundResource extends BaseMercadoPagoResource {
         return await this.requestRoute({
             headers,
             method: "POST",
-            path: `/payments/:id/refunds`,
+            path: `/v1/payments/:id/refunds`,
             params: {
                 id
             }
@@ -24,7 +24,7 @@ export class RefundResource extends BaseMercadoPagoResource {
         return await this.requestRoute({
             headers,
             method: "POST",
-            path: `/payments/:id/refunds`,
+            path: `/v1/payments/:id/refunds`,
             params: {
                 id: props.id,
             },

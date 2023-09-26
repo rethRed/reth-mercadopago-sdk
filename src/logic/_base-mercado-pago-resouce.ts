@@ -1,5 +1,5 @@
 import { Either, MercadoPagoError } from "@/logic";
-import { MercadoPago } from "../mercado-pago";
+import { MercadoPago } from "../lib/mercado-pago";
 import { RequestManager, getAxiosInstance } from "@/helpers";
 
 export class BaseMercadoPagoResource {
