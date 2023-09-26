@@ -31,7 +31,7 @@ if(payment.isFailure()) return payment.value
 return payment.value
 ```
 
-## 🌟 Logic
+## ✨ Logic
 
   Each operation will yield one of two outcomes: a MercadoPagoError in the event of an error, or the desired value in case of a   
   successful operation.
