@@ -4,7 +4,7 @@
 
 1. Install NodeJS SDK for MercadoPago running in command line:
 ```sh
-$ npm install --save mercadopago
+$ npm i @rethred/mercadopago-sdk
 ```
 
 
