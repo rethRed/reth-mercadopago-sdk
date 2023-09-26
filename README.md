@@ -2,8 +2,6 @@
 
 ## 📲 Installation 
 
-First time using Mercado Pago? Create your [Mercado Pago account](https://www.mercadopago.com), if you don’t have one already.
-
 1. Install NodeJS SDK for MercadoPago running in command line:
 ```sh
 $ npm install --save mercadopago
@@ -32,3 +30,16 @@ const payment = await mercadoPago.value.payment.create({
 if(payment.isFailure()) return payment.value
 return payment.value
 ```
+
+## 🌟 Logic
+
+  Each operation will yield one of two outcomes: a MercadoPagoError in the event of an error, or the desired value in case of a   
+  successful operation.
+
+```javascript
+const payment = await mercadoPago.value.payment.create()
+if(payment.isFailure()) console.log("operation failed")
+if(payment.isSuccess()) console.log("operation succeeded")
+```
+  
+
