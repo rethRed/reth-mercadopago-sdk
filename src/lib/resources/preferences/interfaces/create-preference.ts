@@ -22,17 +22,17 @@ export type CreatePreference = {
         phone?: {
         area_code?: string
         number?: number
+        identification?: {
+            type?: string
+            number?: string
+        },
+        address?: string
+            zip_code?: string
+            street_name?: string
+            street_number?: number
+        }
+        date_created?: string
     },
-    identification?: {
-        type?: string
-        number?: string
-    },
-    address?: string
-        zip_code?: string
-        street_name?: string
-        street_number?: number
-    }
-    date_created?: string
   
     statement_descriptor?: string
     payment_methods?: {
