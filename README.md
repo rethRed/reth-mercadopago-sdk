@@ -1,5 +1,7 @@
 # reth-mercadopago-sdk
 
+This library offers developers an uncomplicated collection of connectors to facilitate the seamless integration of the Mercado Pago API into a website, enabling the initiation of payment transactions
+
 ## 📲 Installation 
 
 1. Install NodeJS SDK for MercadoPago running in command line:
@@ -33,8 +35,7 @@ return payment.value
 
 ## ✨ Logic
 
-  Each operation will yield one of two outcomes: a MercadoPagoError in the event of an error, or the desired value in case of a   
-  successful operation.
+  Each operation will yield one of two outcomes: a MercadoPagoError in the event of an error, or the desired value in case of a successful operation.
 
   You can check if the operation was successfull or not by calling the methods:
 ```javascript
