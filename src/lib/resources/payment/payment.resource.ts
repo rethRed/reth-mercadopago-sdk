@@ -1,5 +1,5 @@
 import { MercadoPago } from "@/lib/mercado-pago";
-import { CreatePayment, PaymentModel } from "./interfaces"
+import { CreatePayment, PaymentCreationModel, PaymentModel } from "./interfaces"
 import { BaseMercadoPagoResource } from "../../../logic/_base-mercado-pago-resouce";
 import { Either, MercadoPagoError } from "@/logic";
 
@@ -11,7 +11,7 @@ export class PaymentResource extends BaseMercadoPagoResource {
         super(mercadoPago)
     }
 
-    async create(data: CreatePayment, headers?: BaseMercadoPagoResource.Headers): Promise<Either<MercadoPagoError, PaymentModel>> {
+    async create(data: CreatePayment, headers?: BaseMercadoPagoResource.Headers): Promise<Either<MercadoPagoError, PaymentCreationModel>> {
         return await this.requestRoute({
             method: "POST",
             path: "/v1/payments",
