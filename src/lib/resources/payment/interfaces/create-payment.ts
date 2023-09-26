@@ -1,21 +1,21 @@
 
 export type CreatePayment = {
     payer: {
-          entity_type?: 'individual' | 'association'
-          type?: 'customer' | 'registered' | 'guest'
-          id?: string
-          email: string
-          identification?: {
-              type?: "CPF" | "CNPJ" | "CUIT" | "CUIL" | "DNI" | "CURP" | "RFC" | "CC" | "RUT" | "CI"
-              number?: string
-          },
-          phone?: {
+        entity_type?: 'individual' | 'association'
+        type?: 'customer' | 'registered' | 'guest'
+        id?: string
+        email: string
+        identification?: {
+            type?: "CPF" | "CNPJ" | "CUIT" | "CUIL" | "DNI" | "CURP" | "RFC" | "CC" | "RUT" | "CI"
+            number?: string
+        },
+        phone?: {
             area_code: number
             number: string
             extension?: string
-          },
-          first_name?: string
-          last_name?: string
+        },
+        first_name?: string
+        last_name?: string
     },
     binary_mode?: boolean
     external_reference?: string
@@ -28,7 +28,7 @@ export type CreatePayment = {
     differential_pricing_id?: number
     application_fee?: number
     capture?: boolean
-    payment_method_id: "pix" | "account_money" | "debin_transfer" | "ted" | "cvu" 
+    payment_method_id: "pix" | "account_money" | "debin_transfer" | "ted" | "cvu"
     issuer_id?: string
     token?: string
     statement_descriptor?: string
@@ -61,26 +61,26 @@ export type CreatePayment = {
                     company?: string
                 }
             }
-          }[]
+        }[]
         payer?: {
-              first_name?: string
-              last_name?: string
-              phone?: {
+            first_name?: string
+            last_name?: string
+            phone?: {
                 area_code?: string
                 number?: string
-              },
-              address?: {
-                  zip_code?: string
-                  street_name?: string
-                  street_number: number
-                
-              },
-              registration_date?: string
-              is_prime_user?: string
-              is_first_purchase_online?: string
-              last_purchase?: string
-              authentication_type?:  "Gmail" | "Facebook" | "Native web" | "Other"
-          },
+            },
+            address?: {
+                zip_code?: string
+                street_name?: string
+                street_number: number
+
+            },
+            registration_date?: string
+            is_prime_user?: string
+            is_first_purchase_online?: string
+            last_purchase?: string
+            authentication_type?: "Gmail" | "Facebook" | "Native web" | "Other"
+        },
         shipments?: {
             receiver_address?: {
                 zip_code?: string
@@ -96,8 +96,8 @@ export type CreatePayment = {
             express_shipment?: string
             pick_up_on_seller?: string
         }
-  
-  
+
+
     }
 }
-    
+
