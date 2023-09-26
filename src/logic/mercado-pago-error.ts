@@ -21,6 +21,6 @@ export namespace MercadoPagoError {
         message?: string;
         aditionalInfo?: any;
         status?: number;
-        code?: number
+        code?: number | string
     }
 }
