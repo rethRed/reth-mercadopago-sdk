@@ -7,7 +7,7 @@ export class RequestManager {
 
     static async requestRoute(params: RequestManager.RequestRouteParams): Promise<Either<MercadoPagoError, any>> {
         const axiosInstance = getAxiosInstance()
-        const { path, method, data, headers, params: requestParams, accessToken, baseUrl } = params;
+        const { path, method, data, headers, params: requestParams, accessToken, baseUrl, query } = params;
 
         const formatedPath = path.replace(/:([^\/]+)/g, (match, paramName) => {
             if(requestParams?.hasOwnProperty(paramName)) {
@@ -20,6 +20,7 @@ export class RequestManager {
             method,
             url: `${baseUrl}/${formatedPath}`,
             data,
+            params: query,
             headers: {
                 Authorization: `Bearer ${accessToken}`,
                 "X-Idempotency-Key": headers?.idempotency,
@@ -33,6 +34,7 @@ export class RequestManager {
         let code = 0
         if(Array.isArray(response.data?.cause)) {
             code = parseInt(response.data?.cause[0]?.code)
+            if(isNaN(code)) code = 0
         }
 
         return failure(new MercadoPagoError({
@@ -51,6 +53,9 @@ export namespace RequestManager {
         accessToken: string;
         params?: {
             [key: string]: string;
+        }
+        query?: {
+            [key: string]: any;
         }
         headers?: BaseMercadoPagoResource.Headers;
         path: string;

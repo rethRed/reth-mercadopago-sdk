@@ -24,9 +24,20 @@ export class CustomerResource extends BaseMercadoPagoResource {
     async search(data: SearchCustomer, headers?: BaseMercadoPagoResource.Headers) { 
         return await this.requestRoute({
             method: "GET",
-            path: "/v1/customers/search",
+            path: `/v1/customers/search`,
             headers,
             data
+        })
+    }
+
+    async findById(id: string, headers?: BaseMercadoPagoResource.Headers) {
+        return await this.requestRoute({
+            method: "GET",
+            path: "/v1/customers/:id",
+            headers,
+            params: {
+                id
+            }
         })
     }
 }

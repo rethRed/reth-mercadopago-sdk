@@ -24,7 +24,10 @@ export namespace BaseMercadoPagoResource {
         path: string;
         method: "GET" | "POST" | "PUT" | "DELETE";
         params?: {
-            [key: string]: string;
+            [key: string]: any;
+        }
+        query?: {
+            [key: string]: any;
         }
         headers?: Headers;
         data?: any;
