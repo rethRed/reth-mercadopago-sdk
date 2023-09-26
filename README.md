@@ -1,6 +1,6 @@
 # reth-mercadopago-sdk
 
-This library offers developers an uncomplicated collection of connectors to facilitate the seamless integration of the Mercado Pago API into a website, enabling the initiation of payment transactions
+This library offers developers an uncomplicated collection of connectors to facilitate the seamless integration of the Mercado Pago API into a website, enabling the initiation of payment transactions.
 
 ## 📲 Installation 
 
