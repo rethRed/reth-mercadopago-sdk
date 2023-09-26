@@ -1,5 +1,5 @@
 
-export abstract class MercadoPagoError extends Error {
+export class MercadoPagoError extends Error {
     
     aditionalInfo?: any
     status: number;
