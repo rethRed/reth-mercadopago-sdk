@@ -5,7 +5,6 @@ const mercadoPago = MercadoPago.createInstance({
     accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN!
 })
 
-
 if(mercadoPago.isSuccess()){
 
     const exec = async () => {
@@ -30,7 +29,7 @@ if(mercadoPago.isSuccess()){
                 title: `Assinatura 1231241244`,
                 currency_id: "BRL"
             }],
-            
+
          })
          if(resposne.isFailure()) return console.log(resposne.value)
 
@@ -38,6 +37,6 @@ if(mercadoPago.isSuccess()){
         const preference = await mercadoPago.value.preferences.findById(response.value.id)
         console.log("🚀 ~ file: index.ts:24 ~ exec ~ preference:", preference.value)
     }
-    exec()
+    //exec()
 
 }//dfdsdfsdcf
