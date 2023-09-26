@@ -2,7 +2,7 @@
 
 import { MercadoPago } from "@/lib/mercado-pago";
 import { BaseMercadoPagoResource } from "@/logic/_base-mercado-pago-resouce";
-import { CreateCustomer, UpdateCustomer } from "./interfaces";
+import { CreateCustomer, SearchCustomer, UpdateCustomer } from "./interfaces";
 
 export class CustomerResource extends BaseMercadoPagoResource {
 
@@ -21,5 +21,13 @@ export class CustomerResource extends BaseMercadoPagoResource {
         })
     }
 
-
+    async search(data: SearchCustomer, headers?: BaseMercadoPagoResource.Headers) { 
+        return await this.requestRoute({
+            method: "GET",
+            path: "/v1/customers/search",
+            headers,
+            data
+        })
+    }
 }
+

@@ -32,7 +32,7 @@ export class RequestManager {
 
         let code = 0
         if(Array.isArray(response.data?.cause)) {
-            code = response.data?.cause[0]?.code
+            code = parseInt(response.data?.cause[0]?.code)
         }
 
         return failure(new MercadoPagoError({
