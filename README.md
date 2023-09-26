@@ -15,21 +15,20 @@ $ npm install --save mercadopago
   Simple usage looks like:
 
 ```javascript
-var mercadopago = require('mercadopago');
-mercadopago.configure({
-    access_token: 'YOUR_ACCESS_TOKEN'
-});
+const mercadoPago = MercadoPago.createInstance({
+    accessToken: process.env.MERCADOPAGO_ACCESS_TOKEN!
+})
+if(mercadoPago.isFailure()) return mercadoPago.value
 
-var preference = {
-  items: [
-    {
-      title: 'Test',
-      quantity: 1,
-      currency_id: 'ARS',
-      unit_price: 10.5
-    }
-  ]
-};
+const payment = await mercadoPago.value.payment.create({
+    transaction_amount: 10,
+    installments: 1,
+    payer: {
+        email: "client_mail@gmail.com"
+    },
+    payment_method_id: "pix"
+})
 
-mercadopago.preferences.create(preference)
+if(payment.isFailure()) return payment.value
+return payment.value
 ```
