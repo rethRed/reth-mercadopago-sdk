@@ -2,6 +2,7 @@ import { Either, MercadoPagoError, failure, success } from "@/logic";
 import { InvalidCredentialsError } from "./_errors";
 import { 
     CustomerResource,
+    MerchantOrderResource,
     PaymentResource, 
     PreferencesResource, 
     RefundResource 
@@ -17,6 +18,7 @@ export class MercadoPago {
     preferences: PreferencesResource
     customer: CustomerResource
     card: CardResource
+    merchantOrder: MerchantOrderResource
 
     private constructor(
         private readonly props: MercadoPago.Props
@@ -26,6 +28,7 @@ export class MercadoPago {
         this.preferences = new PreferencesResource(this)
         this.customer = new CustomerResource(this)
         this.card = new CardResource(this)
+        this.merchantOrder = new MerchantOrderResource(this)
     }
 
     static createInstance(input: MercadoPago.Props): Either<MercadoPagoError, Omit<MercadoPago, 

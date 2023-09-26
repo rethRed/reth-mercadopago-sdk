@@ -3,7 +3,7 @@ export class MercadoPagoError extends Error {
     
     aditionalInfo?: any
     status: number;
-    code: number
+    code: number | string
 
     constructor({ message, aditionalInfo, status, code }: MercadoPagoError.Input) {
         super(message ?? "Unknown error");

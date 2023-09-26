@@ -32,7 +32,10 @@ export class RequestManager {
         }
 
         let code = 0
-        if(Array.isArray(response.data?.cause)) {
+        if(response.data?.code){
+            code = response.data?.code
+        }
+        else if(Array.isArray(response.data?.cause)) {
             code = parseInt(response.data?.cause[0]?.code)
             if(isNaN(code)) code = 0
         }
