@@ -6,6 +6,7 @@ import {
     PreferencesResource, 
     RefundResource 
 } from "./resources";
+import { CardResource } from "./resources/cards/card.resource";
 
 export class MercadoPago {
     
@@ -15,6 +16,7 @@ export class MercadoPago {
     refundResource: RefundResource
     preferences: PreferencesResource
     customer: CustomerResource
+    card: CardResource
 
     private constructor(
         private readonly props: MercadoPago.Props
@@ -23,6 +25,7 @@ export class MercadoPago {
         this.refundResource = new RefundResource(this)
         this.preferences = new PreferencesResource(this)
         this.customer = new CustomerResource(this)
+        this.card = new CardResource(this)
     }
 
     static createInstance(input: MercadoPago.Props): Either<MercadoPagoError, Omit<MercadoPago, 

@@ -10,9 +10,9 @@ const customerId = "1492078960-wWjrZ8uDuNsu1Y"
 if(mercadoPago.isSuccess()){
 
     const exec = async () => {
-         const update = await mercadoPago.value.customer.update({
-            id: customerId,
-            first_name: "anymailbatata"
+         const update = await mercadoPago.value.customer.cards.create({
+            customer_id: customerId,
+            token: "ff8080814c11e237014c1ff593b57b4d"
         }, { idempotency: "1233" })
          console.log("🚀 ~ file: index.ts:17 ~ exec ~ update:", update.value)
 

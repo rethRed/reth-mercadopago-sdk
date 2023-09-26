@@ -3,13 +3,17 @@
 import { MercadoPago } from "@/lib/mercado-pago";
 import { BaseMercadoPagoResource } from "@/logic/_base-mercado-pago-resouce";
 import { CreateCustomer, SearchCustomer, UpdateCustomer } from "./interfaces";
+import { CardResource } from "../cards/card.resource";
 
 export class CustomerResource extends BaseMercadoPagoResource {
+
+    cards: CardResource
 
     constructor(
         mercadoPago: MercadoPago
     ){
         super(mercadoPago)
+        this.cards = mercadoPago.card
     }
 
     async create(data: CreateCustomer, headers?: BaseMercadoPagoResource.Headers) {
