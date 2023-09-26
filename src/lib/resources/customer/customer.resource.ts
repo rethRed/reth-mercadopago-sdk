@@ -40,5 +40,17 @@ export class CustomerResource extends BaseMercadoPagoResource {
             }
         })
     }
+
+    async update(data: UpdateCustomer & { id: string }, headers?: BaseMercadoPagoResource.Headers) {
+        return await this.requestRoute({
+            method: "PUT",
+            path: "/v1/customers/:id",
+            headers,
+            params: {
+                id: data.id
+            },
+            data
+        })
+    }
 }
 
