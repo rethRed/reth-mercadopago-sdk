@@ -41,5 +41,20 @@ const payment = await mercadoPago.value.payment.create()
 if(payment.isFailure()) console.log("operation failed")
 if(payment.isSuccess()) console.log("operation succeeded")
 ```
-  
+
+```javascript
+class MercadoPagoError {
+  message: string;
+  aditionalInfo: any;
+  status: number;
+  code: number | string
+}
+
+```javascript
+const result =  {
+  id: string
+  payment_method_id: string
+  // ...
+}
+```
 
