@@ -36,12 +36,13 @@ return payment.value
   Each operation will yield one of two outcomes: a MercadoPagoError in the event of an error, or the desired value in case of a   
   successful operation.
 
+  You can check if the operation was successfull or not by calling the methods:
 ```javascript
 const payment = await mercadoPago.value.payment.create()
 if(payment.isFailure()) console.log("operation failed")
 if(payment.isSuccess()) console.log("operation succeeded")
 ```
-
+Definition of MercadoPagoError:
 ```javascript
 class MercadoPagoError {
   message: string;
@@ -50,12 +51,14 @@ class MercadoPagoError {
   code: number | string
 }
 ```
-
+response if successfull:
 ```javascript
-const result =  {
+const response =  {
   id: string
   payment_method_id: string
   // ...
 }
 ```
+
+  Keep in mind the responses are not typed, so you will have to look at the documentation to consult what each operation will return.
 
