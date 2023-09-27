@@ -30,4 +30,5 @@ export type PaymentModel = {
     transaction_details: any,
     installments: number,
     card: {}
+    external_reference?: string
 }
