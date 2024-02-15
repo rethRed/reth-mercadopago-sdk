@@ -6,13 +6,13 @@ This library offers developers an uncomplicated collection of connectors to faci
 
 1. Install NodeJS SDK for MercadoPago running in command line:
 ```sh
-$ npm i @rethred/mercadopago-sdk
+$ npm i @warpstore/warpstore-package
 ```
 
 
-## 🌟 Getting Started
+## 🌟 Começando
 
-  Simple usage looks like:
+  O uso simples se parece com:
 
 ```javascript
 const mercadoPago = MercadoPago.createInstance({
